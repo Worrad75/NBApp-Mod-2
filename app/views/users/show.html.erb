@@ -1,0 +1,18 @@
+<h1><%= "Welcome back, " + @user.username + "!" %></h1>
+
+
+Username: <%= @user.username %>
+
+<br> <br>
+
+All My Follows:
+<ul>
+    <% @user.followed_players.each do |player| %>
+        <li><%= link_to player.full_name, player_path(player.id) %></li>
+    <% end %>
+</ul>
+
+<br><br>
+
+Delete this user:
+<%= button_to "Delete User", user_path(@user), method: :delete %>

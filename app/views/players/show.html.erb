@@ -1,0 +1,16 @@
+<h1>Show Page for <%= @player.f_name %></h1>
+
+Full Name: <%= @player.full_name%>
+<br> <br>
+Position: <%= @player.position %>
+<br> <br>
+<% if @player.weight != nil %>
+    Weight (pounds): <%=@player.weight%>
+<% else %>
+    Weight not available
+<% end %>
+
+<%# UNDER CONSTRUCTION%>
+Wanna follow this player?
+Click <%= link_to "Here!", "/users/:id/follow_player/#{@player.id}", method: :post %>
+<%# @current_user.follow_player(@player.id) %>

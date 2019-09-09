@@ -1,0 +1,8 @@
+<h1>All Teams</h1>
+<br> <br>
+
+<ul>
+    <% @teams.each do |team| %>
+        <li><%= link_to team.full_name, team_path(team.id) %></li>
+    <% end %>
+</ul>
