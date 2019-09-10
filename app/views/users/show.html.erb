@@ -5,12 +5,16 @@ Username: <%= @user.username %>
 
 <br> <br>
 
-All My Follows:
-<ul>
-    <% @user.followed_players.each do |player| %>
-        <li><%= link_to player.full_name, player_path(player.id) %></li>
-    <% end %>
-</ul>
+<%# byebug%>
+
+<% unless @user.players == nil %>
+    All My Follows:
+    <ul>
+        <% @user.players. each do |player| %>
+            <li><%= link_to player.full_name, player_path(player.id) %></li>
+        <% end %>
+    </ul>
+<% end %>
 
 <br><br>
 

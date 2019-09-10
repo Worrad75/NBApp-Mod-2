@@ -1,16 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string
+#  password_digest :string
+#
+
 class User < ApplicationRecord
     has_secure_password
+    has_many :follows
+    has_many :players, through: :follows
+    has_many :teams, through: :players
     validates :password, length: { minimum: 6 }
-    
-    def follows
-        Follow.all.select do |follow|
-            follow.user_id == self.id
-        end
-    end
-
-    def followed_players
-        follows.map do |follow|
-            Player.find(follow.player_id)
-        end
-    end
+    validates :username, uniqueness: true
 end

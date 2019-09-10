@@ -11,9 +11,13 @@ Division: <%= @team.division %>
 Abbreviation: <%= @team.abv %>
 <br> <br>
 
-Rostered Players:
-<ul>
-    <% @team.players.each do |p| %>
-        <li><%= link_to p.full_name, player_path(p.id) %></li>
-    <% end %>
-</ul>
+<% unless @team.players.empty? %>
+    Rostered Players:
+    <ul>
+        <% @team.players.each do |p| %>
+            <li><%= link_to p.full_name, player_path(p.id) %></li>
+        <% end %>
+    </ul>
+<% else %>
+    There are no rostered players at this moment.
+<% end %>

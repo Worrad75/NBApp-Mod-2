@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    # before_action :authorize
+
     def new
         @user = User.new
     end
@@ -44,13 +46,20 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find(params[:id])
         @user.destroy
-        # redirect_to new_session_path
+        redirect_to new_user_path
     end
 
     #---------------------
 
-    def follow_player(player_id, favorite = false)
-        Follow.create(player_id, self.id, favorite)
+    def follow_player
+        Follow.create(player_id: params[:player_id], user_id: current_user.id)
+        redirect_to user_path(current_user.id)
+    end
+
+    def unfollow_player
+        player_to_unfollow = Follow.find_by(player_id: params[:player_id])
+        player_to_unfollow.delete
+        redirect_to user_path(current_user.id)
     end
 
     #---------------------

@@ -1,16 +1,24 @@
-<h1>Show Page for <%= @player.f_name %></h1>
+<div class="container text-center">
 
-Full Name: <%= @player.full_name%>
-<br> <br>
-Position: <%= @player.position %>
-<br> <br>
-<% if @player.weight != nil %>
-    Weight (pounds): <%=@player.weight%>
-<% else %>
-    Weight not available
-<% end %>
+    <h1>Show Page for <%= @player.f_name %></h1>
 
-<%# UNDER CONSTRUCTION%>
-Wanna follow this player?
-Click <%= link_to "Here!", "/users/:id/follow_player/#{@player.id}", method: :post %>
-<%# @current_user.follow_player(@player.id) %>
+    Full Name: <%= @player.full_name%>
+    <br> <br>
+    Position: <%= @player.position %>
+    <br> <br>
+    <% if @player.weight != nil %>
+        Weight (pounds): <%=@player.weight%>
+    <% else %>
+        Weight not available
+    <% end %>
+    <br> <br>
+
+    <% if @current_user.players.include?(@player)%>
+        Wanna unfollow this player?
+        Click <%= link_to "Here!", "/unfollow_player/#{@player.id}", method: :delete %>
+    <% else %>
+        Wanna follow this player?
+        Click <%= link_to "Here!", "/follow_player/#{@player.id}", method: :post %>
+    <% end %>
+
+</div>  
