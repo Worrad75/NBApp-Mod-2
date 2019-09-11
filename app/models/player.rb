@@ -17,6 +17,7 @@ class Player < ApplicationRecord
     # foreign_key: :team_id
     # primary_key: :id
 
+    # has_many :statlines
     has_many :follows
     has_many :users, through: :follows
 

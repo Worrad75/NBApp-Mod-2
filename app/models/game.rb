@@ -21,6 +21,7 @@ class Game < ApplicationRecord
     foreign_key: :away_id,
     class_name: :Team
 
+    # has_many :statlines
     has_many :players, through: :teams
 
     def home
