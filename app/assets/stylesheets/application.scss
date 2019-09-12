@@ -12,11 +12,10 @@
  *
  */
 
- // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "bootstrap";
+//-------------------------
+// we MAY need this for button formatting?
 
-
-/*.button {
+.button {
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -28,16 +27,37 @@
   margin: 4px 2px;
   cursor: pointer;
 }
-*/
+
+//-------------------------
+
+
+.inner
+{
+   display: inline-block;
+}
+#outer {
+  width:100%;
+  text-align: center;
+}
+
 
 // h1 {
 //     font-color: #fff;
 // }
 
-// body {
-//     background-image: url("hardwood.jpg");
-//     font-family: Helvetica, Geneva, Arial, sans-serif;
-//     font-size: small;
-//     font-color: rgb(3, 3, 3);
-//     background-color: rgb(96, 231, 255)
-// }
+body {
+    background-image: url("hardwood.jpg");
+    background-size: 1800px;
+    font-family: Helvetica, Geneva, Arial, sans-serif;
+    font-size: medium;
+    font-color: #fff;
+    background-color: rgb(96, 231, 255)
+}
+
+a:link, a:active {
+  color: rgb(233, 232, 157);
+}
+
+a:visited {
+  color: rgb(170, 214, 207)
+}
