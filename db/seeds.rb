@@ -134,7 +134,7 @@ new_game_hash["api"]["games"].each do |hash|
         puts hash["gameId"]
         
         
-        game = Game.create(
+        game = Game.new(
             date: hash["startTimeUTC"],
             home_id: hash["hTeam"]["teamId"].to_i,
             home_score: hash["hTeam"]["score"]["points"].to_i,
@@ -146,8 +146,9 @@ new_game_hash["api"]["games"].each do |hash|
             season_stage: hash["seasonStage"].to_i,
             arena: hash["arena"]
         )
-        if hash["seasonStage"] == 4
-            game.update(postseason: true)
+
+        if !Game.all.include?(game)
+            game.save
         end
     end
     # byebug
@@ -197,16 +198,16 @@ end
 
 #-----------------------------------------------------
 
-# puts "creating follows"     
-# Follow.create!(player_id: 1, user_id: 1, favorite: true)
-# Follow.create!(player_id: 2, user_id: 2)
-# Follow.create!(player_id: 3, user_id: 3, favorite: true)
-# Follow.create!(player_id: 5, user_id: 4)
-# Follow.create!(player_id: 5, user_id: 5)
-# Follow.create!(player_id: 10, user_id: 1, favorite: true)
-# Follow.create!(player_id: 15, user_id: 2)
-# Follow.create!(player_id: 20, user_id: 3)
-# Follow.create!(player_id: 3, user_id: 4, favorite: true)
-# Follow.create!(player_id: 17, user_id: 5)
+puts "creating follows"
+Follow.create!(player_id: 1, user_id: 1, favorite: true)
+Follow.create!(player_id: 2, user_id: 2)
+Follow.create!(player_id: 3, user_id: 3, favorite: true)
+Follow.create!(player_id: 5, user_id: 4)
+Follow.create!(player_id: 5, user_id: 5)
+Follow.create!(player_id: 10, user_id: 1, favorite: true)
+Follow.create!(player_id: 15, user_id: 2)
+Follow.create!(player_id: 20, user_id: 3)
+Follow.create!(player_id: 3, user_id: 4, favorite: true)
+Follow.create!(player_id: 17, user_id: 5)
 
 puts "Finished!"

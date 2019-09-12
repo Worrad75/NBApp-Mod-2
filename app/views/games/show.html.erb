@@ -1,0 +1,18 @@
+<div class="container text-center">
+
+    <br>
+    <br>
+    <h3> <%= link_to @game.home.full_name, team_path(@game.home) %> vs. <%= link_to @game.away.full_name, team_path(@game.away) %> </h1>
+    <br>
+    <h5> <%= @game.date.strftime("%m/%d/%Y")%></h5>
+
+    Final Score: <%= @game.home_score %> - <%= @game.away_score %>, <%= @game.winner[0].city %> by <%= @game.winner[1] %>
+    <br>
+    <% if @game.season_stage == 4 %>
+        (Postseason Game)
+        <br>
+    <% end %>
+
+    Arena: <%= link_to @game.arena, "https://en.wikipedia.org/wiki/#{@game.arena}" %>
+
+</div>

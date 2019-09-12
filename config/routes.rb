@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
   get "/login", to: "sessions#new", as: "new_session"
+  
+  resources :games, only: [:index, :show]
 
   # UNDER CONSTRUCTION
   post "/follow_player/:player_id", to: "users#follow_player"

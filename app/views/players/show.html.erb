@@ -1,17 +1,40 @@
 <div class="container text-center">
 
-    <h1>Show Page for <%= @player.f_name %></h1>
-
-    Full Name: <%= @player.full_name%>
-    <br> <br>
-    Position: <%= @player.position %>
-    <br> <br>
+    <h1><%= @player.full_name %></h1>
+    <br>
+    <br>
+    Team: <%= link_to @player.team.full_name, team_path(@player.team.id) %>
+    <br>
+    <br>
+    Height (meters): <%= @player.height %>
+    <br>
+    <br>
     <% if @player.weight != nil %>
-        Weight (pounds): <%=@player.weight%>
+        Weight (kilograms): <%=@player.weight%>
     <% else %>
         Weight not available
     <% end %>
-    <br> <br>
+    <br>
+    <br>
+    <% unless @player.collegeName == " " || @player.collegeName == "" %>
+        College name: <%=@player.collegeName%>
+    <% else %>
+        College name not available
+    <% end %>
+    <br>
+    <br>
+    <% unless @player.country == " " || @player.country == "" %>
+        Country: <%=@player.country%>
+    <% else %>
+        Country not available
+    <% end %>
+    <br>
+    <br>
+    <%= link_to "Twitter News", "https://twitter.com/search?q=#{@player.full_name}&src=typed_query" %>
+
+    <br>
+    <br>
+    <br>
 
     <% if @current_user.players.include?(@player)%>
         Wanna unfollow this player?
@@ -21,4 +44,4 @@
         Click <%= link_to "Here!", "/follow_player/#{@player.id}", method: :post %>
     <% end %>
 
-</div>  
+</div>

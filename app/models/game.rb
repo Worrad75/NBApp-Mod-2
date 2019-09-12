@@ -44,11 +44,18 @@ class Game < ApplicationRecord
         players
     end
 
+    def difference
+        dif = self.home_score - self.away_score
+        dif *= -1 if dif < 0
+        dif
+    end
+
     def winner
         if self.home_score > self.away_score
-            [home, home_score]
+            [home, difference]
         else
-            [away, away_score]
+            [away, difference]
         end
     end
+
 end

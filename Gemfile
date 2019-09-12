@@ -31,6 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rest-client', '~> 2.0.2'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+
+gem 'twitter'
 #---------------
 
 
