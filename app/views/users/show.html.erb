@@ -1,22 +1,24 @@
-<h1><%= "Welcome back, " + @user.username + "!" %></h1>
+<div class="container text-center">
+    <h1><%= "Welcome back, " + @user.username + "!" %></h1>
 
 
-Username: <%= @user.username %>
+    Username: <%= @user.username %>
 
-<br> <br>
+    <br> <br>
 
-<%# byebug%>
+    <%# byebug%>
 
-<% unless @user.players == nil %>
-    All My Follows:
-    <ul>
-        <% @user.players. each do |player| %>
-            <li><%= link_to player.full_name, player_path(player.id) %></li>
-        <% end %>
-    </ul>
-<% end %>
+    <% unless @user.players == nil %>
+        All My Follows:
+            <% @user.players. each do |player| %>
+            <br>
+                <%= link_to player.full_name, player_path(player.id) %>
+            <% end %>
+    <% end %>
 
-<br><br>
+    <br><br>
 
-Delete this user:
-<%= button_to "Delete User", user_path(@user), method: :delete %>
+    Delete this user:
+    <%= button_to "Delete User", user_path(@user), method: :delete %>
+    
+</div>

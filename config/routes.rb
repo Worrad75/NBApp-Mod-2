@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   
   resources :games, only: [:index, :show]
 
+  resources :forums
+
   # UNDER CONSTRUCTION
   post "/follow_player/:player_id", to: "users#follow_player"
   delete "/unfollow_player/:player_id", to: "users#unfollow_player"

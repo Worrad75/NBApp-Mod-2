@@ -12,6 +12,7 @@ class User < ApplicationRecord
     has_many :follows
     has_many :players, through: :follows
     has_many :teams, through: :players
+    has_many :forums
     validates :password, length: { minimum: 6 }
     validates :username, uniqueness: true
 end

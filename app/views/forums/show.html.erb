@@ -1,0 +1,23 @@
+<div class="container text-center">
+
+    <h3>Discussion: <%= @forum.title %></h1>
+    <br><br>
+    Player: <%= @forum.player.full_name %>
+    <br><br>
+    OP: <%= @forum.author.username %>
+    <br><br><br>
+
+    Description: <br> <%= @forum.description %>
+
+    <br><br><br>
+    Comments:
+    ADD THESE LATER
+    <br><br>
+    <ul>
+        <%# @forum.comments.each do |comment|%>
+            <li> <%# comment.author %> <br><br> </li> 
+            <li><%# comment.text %> <br><br> </li> 
+        <%# end %>
+    </ul>
+
+</div>

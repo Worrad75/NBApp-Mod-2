@@ -1,18 +1,21 @@
-<h1>The Winds of Change</h1>
+<div class="container text-center">
 
+    <h3>Update User Information</h1>
 
-<% if flash[:messages] %>
-    <% flash[:messages].each do |m| %>
-        <%=m%>
+    <% if flash[:messages] %>
+        <% flash[:messages].each do |m| %>
+            <%=m%>
+        <% end %>
     <% end %>
-<% end %>
 
 
-<%= form_for @user do |f| %>
-    Username: <br>
-    <%= f.text_field :username %> <br>
-    Password: <br>
-    <%= f.password_field :password %> <br>
-    <br>
-    <%= f.submit "Update User" %>
-<% end %>
+    <%= form_for @user do |f| %>
+        Username: <br>
+        <%= f.text_field :username %> <br>
+        Password: <br>
+        <%= f.password_field :password %> <br>
+        <br>
+        <%= f.submit "Update User" %>
+    <% end %>
+
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_214514) do
+ActiveRecord::Schema.define(version: 2019_09_12_202046) do
 
   create_table "follows", force: :cascade do |t|
     t.integer "player_id"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2019_09_11_214514) do
     t.boolean "favorite", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "forums", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "author_id"
+    t.integer "player_id"
   end
 
   create_table "games", force: :cascade do |t|

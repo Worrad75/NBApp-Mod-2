@@ -1,0 +1,17 @@
+<div class="container text-center">
+
+<h3>Edit your discussion topic on <%= @forum.player.full_name %>!</h1>
+
+    <%= form_for @forum do |f| %>
+        Title: <br>
+        <%= f.text_field :title %>
+        <br>
+        <br>
+        Description: <br>
+        <%= f.text_area :description %>
+        <br>
+        <br>
+        <br>
+        <%= f.submit "Edit Forum" %>
+    <% end %>
+</div>

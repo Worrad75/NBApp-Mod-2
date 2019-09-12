@@ -1,16 +1,17 @@
-<h1>NBA Games</h1>
-<br>
-<h3>2018 Season</h3>
-<br>
-<br>
-Click on date to see game info!
-<br>
----------------------------------------------------
-<br>
-<br>
-<ul>
-<% @games.each do |game| %>
-<li> <%= link_to game.home.full_name, team_path(game.home) %> vs. <%= link_to game.away.full_name, team_path(game.away) %> , on <%= link_to game.date.strftime("%m/%d/%Y"), game_path(game) %> </li>
-<% end %>
+<div class="container text-center">
 
-</ul>
+    <h1>NBA Games</h1>
+    <br>
+    <h3>2018 Season</h3>
+    <br>
+    <br>
+    Click on date to see game info!
+    <br>
+    ---------------------------------------------------
+    <br>
+    <br>
+    <% @games.each do |game| %>
+    <br>
+    <%= link_to game.away.full_name, team_path(game.away) %> at <%= link_to game.home.full_name, team_path(game.home) %>, on <%= link_to game.date.strftime("%m/%d/%Y"), game_path(game) %>
+    <% end %>
+</div>

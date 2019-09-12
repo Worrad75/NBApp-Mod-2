@@ -1,8 +1,14 @@
-<h1>All Teams</h1>
-<br> <br>
+<div class="container text-center">
+    <h1>All Teams</h1>
+    <br> <br>
 
-<ul>
-    <% @teams.each do |team| %>
-        <li><%= link_to team.full_name, team_path(team.id) %></li>
-    <% end %>
-</ul>
+        <% @teams.each do |team| %>
+        <br>
+            <%= link_to team.full_name, team_path(team.id) %>
+        <% end %>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </div>

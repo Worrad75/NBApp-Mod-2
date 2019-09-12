@@ -20,6 +20,7 @@ class Player < ApplicationRecord
     # has_many :statlines
     has_many :follows
     has_many :users, through: :follows
+    has_many :forums
 
     def full_name
         self.f_name + " " + self.l_name

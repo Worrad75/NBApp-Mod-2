@@ -1,26 +1,28 @@
-<h1>Welcome to NBApp!</h1>
-<h2>We Put The "Fan" In "Fanatic" </h2>
+<div class="container text-center">
+    <h1>Welcome to NBApp!</h1>
+    <h2>We Put The "Fan" In "Fanatic" </h2>
 
 
-<% if flash[:messages] %>
-    <% flash[:messages].each do |m| %>
-        <%=m%>
+    <% if flash[:messages] %>
+        <% flash[:messages].each do |m| %>
+            <%=m%>
+        <% end %>
     <% end %>
-<% end %>
 
 
-<br> <br> Log In Here!
-<br><br>
-<form action="/sessions" method="POST">
-    
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <br> <br> Log In Here!
+    <br><br>
+    <form action="/sessions" method="POST">
+        
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
-    Username: <br>
-    <%= text_field_tag :username %><br>
-    Password: <br>
-    <%= password_field_tag :password %><br><br>
+        Username: <br>
+        <%= text_field_tag :username %><br>
+        Password: <br>
+        <%= password_field_tag :password %><br><br>
 
-    <%= submit_tag "Submit" %>
-</form>
-<br><br><br>
-Don't have an account? Sign up <%= link_to 'here!', new_user_path %>
+        <%= submit_tag "Submit" %>
+    </form>
+    <br><br><br>
+    Don't have an account? Sign up <%= link_to 'here!', new_user_path %>
+</div>

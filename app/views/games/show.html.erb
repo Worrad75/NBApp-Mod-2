@@ -2,7 +2,7 @@
 
     <br>
     <br>
-    <h3> <%= link_to @game.home.full_name, team_path(@game.home) %> vs. <%= link_to @game.away.full_name, team_path(@game.away) %> </h1>
+    <h3> <%= link_to @game.away.full_name, team_path(@game.away) %> at <%= link_to @game.home.full_name, team_path(@game.home) %> </h3>
     <br>
     <h5> <%= @game.date.strftime("%m/%d/%Y")%></h5>
 
@@ -14,5 +14,11 @@
     <% end %>
 
     Arena: <%= link_to @game.arena, "https://en.wikipedia.org/wiki/#{@game.arena}" %>
+    <br>
+    <br>
 
+    Home Team: <%= @game.home.full_name %>
+    <br>
+    Away Team: <%= @game.away.full_name %>
+    
 </div>
